@@ -201,24 +201,26 @@
  */
 .noteBody {
   position: absolute;
-  inset: 21% 8% 10% 15%;
+  inset: 16% 8% 8% 15%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 3.2cqw;
+  gap: clamp(0.75rem, 3.2cqw, 1rem);
 }
 
 .stepLabel {
+  margin: 0;
   font-family: var(--font-accent);
-  font-size: 5.5cqw;
+  font-size: clamp(1rem, 5.5cqw, 1.25rem);
   line-height: 1.2;
   color: var(--ink-muted);
 }
 
 .noteText {
+  margin: 0;
   font-family: var(--font-accent);
-  font-size: 5.5cqw;
+  font-size: clamp(1rem, 5.5cqw, 1.25rem);
   line-height: 1.2;
   color: var(--ink);
 }
@@ -228,12 +230,12 @@
   position: relative;
 
   width: min(100%, 385px);
-  padding: 7cqw;
+  padding: clamp(1rem, 7cqw, 1.6875rem);
   border-radius: var(--radius-note);
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
-  gap: 3.5cqw;
+  gap: clamp(0.75rem, 3.5cqw, 0.875rem);
 }
 
 .cardCream {
@@ -245,45 +247,48 @@
 }
 
 .cardTitle {
+  margin: 0;
   font-family: var(--font-sans);
   font-weight: 400;
-  font-size: 7.8cqw; /* 30 / 385 */
+  font-size: clamp(1rem, 7.8cqw, 1.875rem); /* 30 / 385 */
   line-height: 0.9;
   letter-spacing: -0.03em;
 }
 
 .cardLead {
+  margin: 0;
   display: flex;
   align-items: center;
-  gap: 1cqw;
+  gap: clamp(0.25rem, 1cqw, 0.375rem);
   font-family: var(--font-accent);
-  font-size: 5.2cqw; /* 20 / 385 */
+  font-size: clamp(1rem, 5.2cqw, 1.25rem); /* 20 / 385 */
   line-height: 1.2;
 }
 
 .arrow {
-  width: 6.2cqw;
-  height: 6.2cqw;
+  width: clamp(1rem, 6.2cqw, 1.5rem);
+  height: clamp(1rem, 6.2cqw, 1.5rem);
   flex-shrink: 0;
 }
 
 .cardText {
+  margin: 0;
   font-family: var(--font-accent);
-  font-size: 5.2cqw;
+  font-size: clamp(1rem, 5.2cqw, 1.25rem);
   line-height: 1.2;
 }
 
 .polaroid {
   position: absolute;
-  top: -9cqw;
-  right: -5cqw;
-  width: 24cqw;
+  top: max(-2.125rem, -9cqw);
+  right: max(-1.2rem, -5cqw);
+  width: min(24cqw, 5.75rem);
   rotate: 16deg;
 }
 
 .polaroidImg {
   width: 100%;
-  border: 1.5cqw solid var(--white);
+  border: clamp(0.25rem, 1.5cqw, 0.375rem) solid var(--white);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }
 
@@ -297,9 +302,9 @@
 
 .film {
   position: absolute;
-  top: -10cqw;
-  right: -2cqw;
-  width: 20cqw;
+  top: max(-2.375rem, -10cqw);
+  right: max(-0.5rem, -2cqw);
+  width: min(20cqw, 4.75rem);
   rotate: 3deg;
   pointer-events: none;
 }
@@ -341,6 +346,72 @@
 
   .badgeBottom {
     bottom: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section {
+    width: min(92vw, 1880px);
+    padding-top: clamp(7rem, 10vh, 11rem);
+  }
+
+  .header {
+    position: relative;
+    top: auto;
+    width: 100%;
+    padding-block: clamp(4rem, 8vh, 7rem);
+  }
+
+  .heading {
+    max-width: 10em;
+    font-size: clamp(5rem, 8.5vw, 10rem);
+    line-height: 0.9;
+    letter-spacing: -0.055em;
+  }
+
+  .badgeTop {
+    top: 0;
+    left: 18%;
+  }
+
+  .badgeBottom {
+    right: 15%;
+    bottom: 0;
+  }
+
+  .eye {
+    left: 7%;
+    bottom: -1rem;
+    width: clamp(6rem, 8vw, 10rem);
+  }
+
+  .camera {
+    right: 7%;
+    top: -1rem;
+    width: clamp(6rem, 8vw, 10rem);
+  }
+
+  .scene {
+    height: 260svh;
+  }
+
+  .stackItem {
+    width: min(36vw, 520px);
+  }
+
+  .boxLayer {
+    width: min(55vw, 760px);
+  }
+
+  .plainList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 8vw;
+  }
+
+  .plainList > li {
+    width: min(100%, 520px);
   }
 }
 

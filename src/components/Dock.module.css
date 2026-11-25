@@ -74,3 +74,25 @@
   .iconWrap { width: clamp(40px, 12vw, 48px) !important; height: clamp(40px, 12vw, 48px) !important; }
   .tip { display: none; }
 }
+
+@media (min-width: 1200px) and (pointer: fine) {
+  .dock {
+    bottom: clamp(2rem, 4vh, 3.5rem);
+  }
+
+  .tray {
+    gap: 12px;
+    padding: 12px;
+    border-radius: 26px;
+  }
+
+  .iconWrap {
+    width: clamp(72px, 5vw, 110px);
+    height: clamp(72px, 5vw, 110px);
+    border-radius: 24px;
+  }
+
+  .icon {
+    border-radius: 24px;
+  }
+}

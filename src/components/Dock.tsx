@@ -26,7 +26,7 @@ import styles from './Dock.module.css';
  */
 
 const ITEMS: { key: AssetKey; label: string; target: string }[] = [
-  { key: 'dockNotes', label: 'What I do', target: 'what-i-do' },
+  { key: 'dockNotes', label: 'Home', target: 'top' },
   { key: 'dockPhotos', label: 'Selected work', target: 'work' },
   { key: 'dockFinder', label: 'How I work', target: 'process' },
   { key: 'dockMail', label: 'Get in touch', target: 'contact' },
@@ -66,6 +66,14 @@ function DockIcon({
       onClick={(event) => {
         // Route through Lenis, which otherwise fights the browser's own jump
         event.preventDefault();
+
+        // The project studies are separate hash-routed pages. The Finder/Home
+        // icon must leave those pages and return to the portfolio homepage.
+        if (item.target === 'top' && window.location.hash.startsWith('#project=')) {
+          window.location.hash = '';
+          return;
+        }
+
         scrollToSection(item.target);
       }}
     >

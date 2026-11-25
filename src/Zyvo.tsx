@@ -33,7 +33,7 @@ function Note({ number, title, children }: { number: string; title: string; chil
 export default function Zyvo() {
   const phoneVideoRef = useRef<HTMLVideoElement>(null);
   const controlsTimer = useRef<number | undefined>(undefined);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [controlsVisible, setControlsVisible] = useState(false);
 
@@ -65,12 +65,15 @@ export default function Zyvo() {
   };
 
   return <div className={styles.page}>
-    <header className={styles.hero}>
-      <div className={styles.topbar}>
-        <div className={styles.trafficLights} aria-label="Window controls"><i /><i /><i /></div>
+    <div className={styles.topbar}>
+        <div className={styles.trafficLights} aria-label="Window controls">
+          <button className={styles.backButton} type="button" aria-label="Go back" onClick={() => window.history.length > 1 ? window.history.back() : window.location.assign(import.meta.env.BASE_URL)} />
+          <i /><i />
+        </div>
         <div className={styles.address}><span aria-hidden="true">⌕</span><span>Zyvo Case Study</span><span aria-hidden="true">↻</span></div>
-        <Figure name="dockFinder" alt="Finder" className={styles.finderIcon} />
-      </div>
+        <Figure name="dockPhotos" alt="Gallery" className={styles.finderIcon} />
+    </div>
+    <header className={styles.hero}>
       <div className={styles.heroVisual}>
         <img src={`${import.meta.env.BASE_URL}assets/work-zyvo.png`} alt="ZYVO identity card set on dark woven fabric" className={styles.heroCover} />
         <Figure name="vinylRecord" alt="Vinyl record" className={styles.heroRecord} />

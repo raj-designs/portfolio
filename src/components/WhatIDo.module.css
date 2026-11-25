@@ -149,3 +149,26 @@
     width: min(18rem, 22vw);
   }
 }
+
+@media (min-width: 1200px) {
+  .section {
+    min-height: 100svh;
+  }
+
+  .sticky {
+    height: 100svh;
+  }
+
+  .copy {
+    width: min(88vw, 1180px);
+    gap: clamp(1.5rem, 3vh, 2.75rem);
+  }
+
+  .headings {
+    align-items: center;
+  }
+
+  .blurb {
+    max-width: 58ch;
+  }
+}

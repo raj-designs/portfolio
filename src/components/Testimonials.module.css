@@ -100,6 +100,7 @@
 }
 
 .aside {
+  margin: 0;
   font-family: var(--font-sans);
   font-size: var(--step-title);
   line-height: 0.9;
@@ -136,6 +137,7 @@
 }
 
 .resultsLabel {
+  margin: 0;
   font-family: var(--font-sans);
   font-weight: 400;
   font-size: 9.7cqw; /* 30 / 308 */
@@ -149,6 +151,9 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 2.2cqw;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 /* Result pills follow the note too, so three always fit */
@@ -210,5 +215,96 @@
 
   .grid > :nth-child(2) {
     margin-top: clamp(2rem, 4vw, 3.5rem);
+  }
+}
+
+@media (min-width: 1200px) {
+  .section {
+    width: min(92vw, 1840px);
+    padding-block: clamp(8rem, 14vh, 12rem);
+  }
+
+  .header {
+    position: relative;
+    top: auto;
+    transform: none;
+    padding-block: clamp(5rem, 8vh, 8rem);
+    margin-bottom: clamp(7rem, 14vh, 12rem);
+  }
+
+  .heading {
+    max-width: 9em;
+    font-size: clamp(5rem, 8vw, 9rem) !important;
+    line-height: 0.9;
+    letter-spacing: -0.055em;
+  }
+
+  .badgeTop {
+    top: 0;
+    left: 8%;
+  }
+
+  .badgeBottom {
+    right: 7%;
+    bottom: 0;
+  }
+
+  .heart {
+    left: 10%;
+    bottom: 1.5rem;
+    width: clamp(5rem, 7vw, 8rem);
+  }
+
+  .camera {
+    right: 9%;
+    top: 0.5rem;
+    width: clamp(6rem, 8vw, 9rem);
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 0;
+    gap: clamp(6rem, 12vh, 10rem);
+    justify-items: stretch;
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.9fr);
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    gap: 1.25rem clamp(2rem, 4vw, 4.5rem);
+    width: min(100%, 1000px);
+    min-height: 470px;
+    padding: clamp(2.5rem, 4vw, 4rem);
+  }
+
+  .client,
+  .quote,
+  .aside {
+    grid-column: 1;
+  }
+
+  .note {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    width: min(100%, 308px);
+    justify-self: center;
+  }
+
+  .photo {
+    top: -5rem;
+    right: 32%;
+    width: clamp(7rem, 8vw, 10rem);
+  }
+
+  .grid > :nth-child(1),
+  .grid > :nth-child(3) {
+    justify-self: end;
+  }
+
+  .grid > :nth-child(2) {
+    justify-self: start;
+    margin-top: 0;
   }
 }

@@ -1,10 +1,12 @@
 .page { width:362px; max-width:calc(100% - 32px); min-height:calc(100vh - 32px); margin:16px auto; padding:16px 8px 4rem; border:1px solid transparent; border-radius:16px; overflow:visible; }
 .hero, .content { width: min(100%, 1120px); margin-inline: auto; }
-.topbar { display:flex; align-items:center; gap:clamp(10px,2vw,16px); margin:0 clamp(-1.1rem,-2vw,-0.25rem) 2.5rem; }
+.topbar { position:sticky; top:0; z-index:50; display:flex; align-items:center; gap:clamp(10px,2vw,16px); margin:0 clamp(-1.1rem,-2vw,-0.25rem) 2.5rem; padding-block:8px; background:var(--paper); }
 .trafficLights { display:flex; align-items:center; flex:none; gap:clamp(6px,1.5vw,10px); }
 .trafficLights i { width:clamp(18px,3.2vw,28px); aspect-ratio:1; border-radius:50%; background:var(--traffic-red); }
 .trafficLights i:nth-child(2) { background:var(--traffic-amber); }
 .trafficLights i:nth-child(3) { background:var(--traffic-green); }
+.trafficLights .backButton { width:clamp(18px,3.2vw,28px); aspect-ratio:1; flex:none; padding:0; border:0; border-radius:50%; background:var(--traffic-red); cursor:pointer; }
+.trafficLights .backButton:focus-visible { outline:2px solid currentColor; outline-offset:3px; }
 .address { flex:1; width:auto; min-width:0; height:clamp(34px,5.5vw,52px); padding:0 clamp(.55rem,2vw,1rem); display:flex; align-items:center; justify-content:space-between; gap:.5rem; color:#989898; border-radius:12px; background:#eee7dd; font-size:clamp(.8rem,2vw,1.15rem); }
 .address span:nth-child(2) { flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .finderIcon { flex:none; width:clamp(32px,5vw,48px); height:clamp(32px,5vw,48px); object-fit:contain; }

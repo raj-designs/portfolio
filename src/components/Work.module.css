@@ -42,6 +42,10 @@
   margin: 0;
 }
 
+.desktopHeading {
+  display: none;
+}
+
 /*
  * Sits in the text flow as the headline's final element, so it wraps with the
  * words rather than covering them. `vertical-align` pulls it onto the last
@@ -225,5 +229,87 @@
 
   .grid > :nth-child(3n + 2) {
     margin-top: clamp(2.5rem, 5vw, 5rem);
+  }
+}
+
+@media (min-width: 1200px) {
+  .section {
+    width: min(92vw, 1840px);
+    padding-block: clamp(8rem, 12vh, 12rem);
+  }
+
+  .header {
+    display: grid;
+    place-items: center;
+    min-height: clamp(300px, 28vw, 520px);
+    margin-bottom: clamp(5rem, 9vw, 10rem);
+  }
+
+  .header > div:first-child {
+    position: absolute;
+    top: 51%;
+    right: 2%;
+    z-index: 2;
+    width: auto;
+    font-size: inherit;
+  }
+
+  .badge {
+    margin: 0;
+  }
+
+  .heading {
+    width: fit-content;
+    max-width: none;
+    font-size: clamp(5rem, 8.5vw, 10rem);
+    line-height: 0.88;
+    letter-spacing: -0.055em;
+    text-align: center;
+  }
+
+  .mobileHeading {
+    display: none;
+  }
+
+  .desktopHeading {
+    display: block;
+  }
+
+  .vinyl {
+    top: 0.9em;
+    right: auto;
+    left: -1.1em;
+    width: clamp(6rem, 8vw, 9rem);
+  }
+
+  .grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: clamp(4rem, 7vw, 8rem) clamp(3rem, 5vw, 6rem);
+    justify-items: stretch;
+    align-items: start;
+  }
+
+  .card,
+  .fullCard {
+    width: 100%;
+    max-width: 540px;
+  }
+
+  .grid > :nth-child(-n + 3) {
+    grid-column: span 2;
+  }
+
+  .grid > :nth-child(3n + 2) {
+    margin-top: clamp(2rem, 4vw, 5rem);
+  }
+
+  .grid > :nth-child(4) {
+    grid-column: 2 / span 2;
+    margin-top: 0;
+  }
+
+  .grid > :nth-child(5) {
+    grid-column: 4 / span 2;
+    margin-top: clamp(2rem, 4vw, 5rem);
   }
 }

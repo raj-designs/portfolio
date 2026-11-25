@@ -242,7 +242,8 @@ export function Work() {
           which keeps it adjacent to the final word at every width.
         */}
         <h2 className={styles.heading} id="work-title">
-          A Collection<br />Of My Recent<br />Work
+          <span className={styles.mobileHeading}>A Collection<br />Of My Recent<br />Work</span>
+          <span className={styles.desktopHeading}>A Collection Of My<br />Recent Work</span>
           <motion.span
             className={styles.vinyl}
             animate={reduced ? undefined : { rotate: 360 }}
