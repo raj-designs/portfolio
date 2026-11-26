@@ -234,21 +234,21 @@
 
 @media (min-width: 1200px) {
   .section {
-    width: min(92vw, 1840px);
+    width: min(96vw, 1840px);
     padding-block: clamp(8rem, 12vh, 12rem);
   }
 
   .header {
     display: grid;
     place-items: center;
-    min-height: clamp(300px, 28vw, 520px);
-    margin-bottom: clamp(5rem, 9vw, 10rem);
+    min-height: 0;
+    margin-bottom: clamp(2rem, 4vw, 4rem);
   }
 
   .header > div:first-child {
     position: absolute;
-    top: 51%;
-    right: 2%;
+    top: 82%;
+    right: 10%;
     z-index: 2;
     width: auto;
     font-size: inherit;
@@ -259,12 +259,13 @@
   }
 
   .heading {
-    width: fit-content;
+    width: min(100%, 1320px);
     max-width: none;
-    font-size: clamp(5rem, 8.5vw, 10rem);
-    line-height: 0.88;
-    letter-spacing: -0.055em;
+    font-size: clamp(52px, 8vw, 120px);
+    line-height: 0.9;
+    letter-spacing: -1.56px;
     text-align: center;
+    text-transform: capitalize;
   }
 
   .mobileHeading {
@@ -278,13 +279,20 @@
   .vinyl {
     top: 0.9em;
     right: auto;
-    left: -1.1em;
+    left: 15%;
     width: clamp(6rem, 8vw, 9rem);
   }
 
+  .clip {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   .grid {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: clamp(4rem, 7vw, 8rem) clamp(3rem, 5vw, 6rem);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: calc(100% - clamp(2rem, 5vw, 5rem));
+    margin-inline: auto;
+    gap: clamp(4rem, 7vw, 7rem) clamp(2rem, 3vw, 4rem);
     justify-items: stretch;
     align-items: start;
   }
@@ -292,24 +300,11 @@
   .card,
   .fullCard {
     width: 100%;
-    max-width: 540px;
+    max-width: none;
   }
 
-  .grid > :nth-child(-n + 3) {
-    grid-column: span 2;
-  }
-
+  /* Three broad, evenly spaced cards form the reference's first row. */
   .grid > :nth-child(3n + 2) {
-    margin-top: clamp(2rem, 4vw, 5rem);
-  }
-
-  .grid > :nth-child(4) {
-    grid-column: 2 / span 2;
-    margin-top: 0;
-  }
-
-  .grid > :nth-child(5) {
-    grid-column: 4 / span 2;
-    margin-top: clamp(2rem, 4vw, 5rem);
+    margin-top: clamp(2rem, 3vw, 4rem);
   }
 }

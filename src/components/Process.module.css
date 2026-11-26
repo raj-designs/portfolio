@@ -352,21 +352,26 @@
 @media (min-width: 1200px) {
   .section {
     width: min(92vw, 1880px);
-    padding-top: clamp(7rem, 10vh, 11rem);
+    padding-top: clamp(8rem, 12vh, 12rem);
   }
 
   .header {
-    position: relative;
-    top: auto;
+    position: sticky;
+    top: clamp(1.5rem, 4vh, 3rem);
+    z-index: 5;
     width: 100%;
     padding-block: clamp(4rem, 8vh, 7rem);
   }
 
   .heading {
-    max-width: 10em;
-    font-size: clamp(5rem, 8.5vw, 10rem);
+    width: min(100%, 1320px);
+    max-width: none;
+    margin-inline: auto;
+    font-size: clamp(52px, 8vw, 120px);
     line-height: 0.9;
-    letter-spacing: -0.055em;
+    letter-spacing: -1.56px;
+    text-align: center;
+    text-transform: capitalize;
   }
 
   .badgeTop {
@@ -380,14 +385,14 @@
   }
 
   .eye {
-    left: 7%;
-    bottom: -1rem;
+    left: 12%;
+    bottom: 1rem;
     width: clamp(6rem, 8vw, 10rem);
   }
 
   .camera {
-    right: 7%;
-    top: -1rem;
+    right: 14%;
+    top: 55%;
     width: clamp(6rem, 8vw, 10rem);
   }
 
@@ -397,10 +402,12 @@
 
   .stackItem {
     width: min(36vw, 520px);
+    top: 68%;
   }
 
   .boxLayer {
     width: min(55vw, 760px);
+    top: 68%;
   }
 
   .plainList {

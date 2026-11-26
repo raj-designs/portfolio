@@ -127,7 +127,8 @@ export function Testimonials() {
         </motion.div>
 
         <motion.h2 className={styles.heading} id="testimonials-title" style={{ fontSize: headingFontSize }}>
-          Okay, but will it work?
+          <span className={styles.mobileHeading}>Okay, but will it work?</span>
+          <span className={styles.desktopHeading}>Okay, but will it<br />work?</span>
         </motion.h2>
 
         <motion.div
