@@ -1,6 +1,6 @@
 .page{width:362px;max-width:calc(100% - 32px);min-height:calc(100vh - 32px);margin:16px auto 0;padding:16px 8px 0;border:1px solid transparent;overflow:visible;color:#090809}
 .hero,.content{width:min(100%,1120px);margin-inline:auto}
-.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:clamp(10px,2vw,16px);margin:0 clamp(-1.1rem,-2vw,-.25rem) 2.5rem;padding-block:8px;background:var(--paper)}
+.topbar{position:sticky;top:0;z-index:50;box-sizing:border-box;width:100vw;display:flex;align-items:center;gap:clamp(10px,2vw,16px);margin:0 calc((100% - 100vw)/2) 2.5rem;padding:8px max(16px,calc((100vw - 363px)/2));background:var(--paper)}
 .trafficLights{display:flex;align-items:center;flex:none;gap:clamp(6px,1.5vw,10px)}
 .trafficLights i{width:clamp(18px,3.2vw,28px);aspect-ratio:1;border-radius:50%;background:var(--traffic-red)}.trafficLights i:nth-child(2){background:var(--traffic-amber)}.trafficLights i:nth-child(3){background:var(--traffic-green)}
 .trafficLights .backButton{width:clamp(18px,3.2vw,28px);aspect-ratio:1;flex:none;padding:0;border:0;border-radius:50%;background:var(--traffic-red);cursor:pointer}.trafficLights .backButton:focus-visible{outline:2px solid currentColor;outline-offset:3px}
@@ -18,3 +18,63 @@
 .results{position:relative;width:308px;height:308px;max-width:100%;box-sizing:border-box;padding:35px 24px;margin:auto;display:flex;flex-direction:column;align-items:flex-start;gap:10px;background-color:#fffefa;background-image:linear-gradient(#e6e7da 1px,transparent 1px),linear-gradient(90deg,#e6e7da 1px,transparent 1px);background-size:24px 24px;box-shadow:var(--shadow-window);transform:rotate(2deg)}.results h2{margin:0 0 5px 10px;font:italic 27px var(--font-script)}.results>b{padding:6px 12px;border:5px solid white;border-radius:99px;background:#d9b9f6;font:700 16px var(--font-accent);white-space:nowrap}.results>b:nth-of-type(2){background:#f4e99a}.results>b:nth-of-type(3){background:#cbd5ff}
 .nextCase{display:flex;justify-content:center;width:100%;margin:0 auto 3rem}.page>footer{position:relative;left:50%;width:100vw;max-width:none;transform:translateX(-50%)}
 @media(max-width:400px){.page{max-width:calc(100% - 24px);padding-inline:7px}.identityWindow{width:100%}.note{width:100%;padding:40px 28px}.studyTile{height:145px}.results{padding-inline:22px}.results>b{font-size:16px}}
+
+/* Larger screens expand the canvas while preserving the original section order. */
+@media (min-width: 760px) {
+  .page {
+    --case-page-padding: clamp(24px, 4vw, 48px);
+    box-sizing: border-box;
+    width: min(calc(100% - 48px), 1200px);
+    max-width: none;
+    margin: 24px auto 0;
+    padding: 24px var(--case-page-padding) 64px;
+    border-radius: 24px;
+  }
+
+  .topbar { padding-inline: calc(24px + var(--case-page-padding)); }
+  .heroVisual { height: clamp(360px, 44vw, 560px); }
+  .intro { width: min(100%, 760px); margin: clamp(3rem, 6vw, 5rem) auto; }
+  .intro h1 { font-size: clamp(3rem, 6vw, 5rem); line-height: .95; }
+  .intro > p { font-size: clamp(1.125rem, 1.8vw, 1.375rem); line-height: 1.45; }
+  .content { gap: clamp(6rem, 10vw, 9rem); }
+  .introSection { width: min(100%, 1000px); margin-inline: auto; }
+  .section {
+    width: min(100%, 800px);
+    margin-inline: auto;
+    gap: clamp(2.5rem, 5vw, 4rem);
+  }
+  .identityWindow { width: min(100%, 800px); }
+  .studyTile { height: clamp(166px, 20vw, 230px); }
+  .brandWindow { grid-template-columns: minmax(0, 1fr); }
+  .brandWindow > .chrome { grid-column: auto; }
+  .results {
+    container-type: inline-size;
+    justify-self: center;
+    width: min(100%, 460px);
+    height: auto;
+    aspect-ratio: 1;
+    padding: clamp(36px, 8cqw, 44px) clamp(26px, 6cqw, 32px);
+    gap: clamp(12px, 3cqw, 14px);
+  }
+  .results h2 {
+    margin: 0 0 clamp(5px, 1.5cqw, 7px);
+    font-size: clamp(27px, 7cqw, 34px);
+  }
+  .results > b {
+    border-width: clamp(4px, 1.3cqw, 6px);
+    padding: clamp(6px, 1.8cqw, 9px) clamp(12px, 3cqw, 16px);
+    font-size: clamp(17px, 4.8cqw, 22px);
+  }
+  .page > :global(nav) {
+    position: static;
+    left: auto;
+    bottom: auto;
+    translate: none;
+    width: fit-content;
+    margin: 2rem auto 0;
+  }
+}
+
+@media (min-width: 1248px) {
+  .topbar { padding-inline: calc(50vw - 600px + var(--case-page-padding)); }
+}
